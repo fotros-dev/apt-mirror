@@ -1,0 +1,62 @@
+{
+  "listen": { "host": "0.0.0.0", "port": 3142 },
+  "refreshMinutes": 60,
+  "negativeSeconds": 60,
+  "maxPromotionDelayHours": 24,
+  "breaker": { "threshold": 5, "openMs": 30000, "maxOpenMs": 300000 },
+  "timeouts": { "metadataHeadersMs": 10000, "poolHeadersMs": 30000 },
+  "upstreams": {
+    "ubuntu": {
+      "url": "http://archive.ubuntu.com/ubuntu",
+      "suites": ["noble", "noble-updates", "noble-backports", "jammy", "jammy-updates", "jammy-backports"],
+      "components": ["main", "restricted", "universe", "multiverse"],
+      "architectures": ["amd64"]
+    },
+    "ubuntu-security": {
+      "url": "http://security.ubuntu.com/ubuntu",
+      "suites": ["noble-security", "jammy-security"],
+      "components": ["main", "restricted", "universe", "multiverse"],
+      "architectures": ["amd64"]
+    },
+    "ubuntu-ports": {
+      "url": "http://ports.ubuntu.com/ubuntu-ports",
+      "suites": ["noble", "noble-updates", "noble-backports", "noble-security", "jammy", "jammy-updates", "jammy-backports", "jammy-security"],
+      "components": ["main", "restricted", "universe", "multiverse"],
+      "architectures": ["arm64"]
+    },
+    "debian": {
+      "url": "http://deb.debian.org/debian",
+      "suites": ["bookworm", "bookworm-updates", "trixie", "trixie-updates"],
+      "components": ["main", "contrib", "non-free", "non-free-firmware"],
+      "architectures": ["amd64", "arm64"]
+    },
+    "debian-security": {
+      "url": "http://deb.debian.org/debian-security",
+      "suites": ["bookworm-security", "trixie-security"],
+      "components": ["main", "contrib", "non-free", "non-free-firmware"],
+      "architectures": ["amd64", "arm64"]
+    },
+    "docker-ubuntu": {
+      "url": "https://download.docker.com/linux/ubuntu",
+      "suites": ["noble", "jammy"],
+      "components": ["stable"],
+      "architectures": ["amd64", "arm64"]
+    },
+    "docker-debian": {
+      "url": "https://download.docker.com/linux/debian",
+      "suites": ["bookworm", "trixie"],
+      "components": ["stable"],
+      "architectures": ["amd64", "arm64"]
+    },
+    "nodesource": {
+      "url": "https://deb.nodesource.com/node_22.x",
+      "suites": ["nodistro"],
+      "components": ["main"],
+      "architectures": ["amd64", "arm64"]
+    }
+  },
+  "keys": {
+    "docker": "https://download.docker.com/linux/ubuntu/gpg",
+    "nodesource": "https://deb.nodesource.com/gpgkey/nodesource-repo.gpg.key"
+  }
+}

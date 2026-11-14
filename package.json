@@ -1,0 +1,11 @@
+{
+  "name": "apt-mirror",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Pull-through caching mirror for apt repositories that keeps working offline",
+  "engines": { "node": ">=22" },
+  "scripts": {
+    "start": "node src/main.js serve"
+  }
+}
